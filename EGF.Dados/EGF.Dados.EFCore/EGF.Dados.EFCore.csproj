@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0.2</Version>
+    <Authors>Eduardo Augusto Gasparotto</Authors>
+    <Company>Eduardo Augusto Gasparotto</Company>
+    <Description>Classe de dados para Entity Framework Core do EGF</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EGF.Dominio\EGF.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>

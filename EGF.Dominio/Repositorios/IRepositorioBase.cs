@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace EGF.Dominio.Repositorios
 {
     public interface IRepositorioBase<TEntidade>
-        where TEntidade: EntidadeBase
+        where TEntidade : EntidadeBase
     {
         public IEnumerable<TEntidade> Buscar();
         public IEnumerable<TEntidade> Buscar(Func<TEntidade, bool> pesquisa);
