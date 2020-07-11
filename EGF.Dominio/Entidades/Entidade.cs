@@ -1,6 +1,6 @@
 ﻿namespace EGF.Dominio.Entidades
 {
-    public abstract class EntidadeBase
+    public abstract class Entidade
     {
     }
 }

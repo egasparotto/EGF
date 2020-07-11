@@ -1,14 +1,14 @@
-﻿using EGF.Dados.EFCore.Contexto;
+﻿using EGF.Dados.EFCore.Contextos;
 
 using System;
 
 namespace EGF.Dados.EFCore.UnidadesDeTrabalho
 {
-    public class UnidadeDeTrabalhoBase<TContexto> : IDisposable
-        where TContexto: ContextoDaAplicacaoBase
+    public class UnidadeDeTrabalho<TContexto> : IDisposable
+        where TContexto: Contexto
     {
         public TContexto Contexto { get; }
-        public UnidadeDeTrabalhoBase(TContexto contexto)
+        public UnidadeDeTrabalho(TContexto contexto)
         {
             Contexto = contexto;
         }

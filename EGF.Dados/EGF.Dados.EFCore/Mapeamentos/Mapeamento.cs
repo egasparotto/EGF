@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EGF.Dados.EFCore.Mapeamentos
 {
-    public abstract class MapeamentoBase<TEntidade> : IEntityTypeConfiguration<TEntidade>
-        where TEntidade : EntidadeBase
+    public abstract class Mapeamento<TEntidade> : IEntityTypeConfiguration<TEntidade>
+        where TEntidade : Entidade
     {
         public void Configure(EntityTypeBuilder<TEntidade> builder)
         {

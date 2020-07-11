@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 
-namespace EGF.Dados.EFCore.Contexto
+namespace EGF.Dados.EFCore.Contextos
 {
-    public abstract class ContextoDaAplicacaoBase : DbContext
+    public abstract class Contexto : DbContext
     {
-        public ContextoDaAplicacaoBase(DbContextOptions options) : base(options)
+        public Contexto(DbContextOptions options) : base(options)
         {
 
         }
