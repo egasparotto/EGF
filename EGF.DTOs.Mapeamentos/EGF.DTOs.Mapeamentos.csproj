@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EGF.Dominio\EGF.Dominio.csproj" />
     <ProjectReference Include="..\EGF.DTOs\EGF.DTOs.csproj" />
   </ItemGroup>
