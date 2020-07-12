@@ -2,16 +2,16 @@
 using EGF.Dados.EFCore.UnidadesDeTrabalho;
 using EGF.Dominio.Entidades;
 using EGF.Dominio.Repositorios;
+using EGF.Dominio.UnidadesDeTrabalho;
 
 using System.Linq;
 
 namespace EGF.Dados.EFCore.Repositorios
 {
-    public abstract class RepositorioComId<TEntidade, TContexto> : Repositorio<TEntidade,TContexto>, IRepositorioComId<TEntidade>
-        where TContexto : Contexto
+    public abstract class RepositorioComId<TEntidade> : Repositorio<TEntidade>, IRepositorioComId<TEntidade>
         where TEntidade : EntidadeComId
     {
-        protected RepositorioComId(UnidadeDeTrabalho<TContexto> unidadeDeTrabalho) : base(unidadeDeTrabalho)
+        protected RepositorioComId(IUnidadeDeTrabalho unidadeDeTrabalho) : base(unidadeDeTrabalho)
         {
         }
 

@@ -2,6 +2,7 @@
 using EGF.Dados.EFCore.UnidadesDeTrabalho;
 using EGF.Dominio.Entidades;
 using EGF.Dominio.Repositorios;
+using EGF.Dominio.UnidadesDeTrabalho;
 
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,12 @@ using System.Linq;
 
 namespace EGF.Dados.EFCore.Repositorios
 {
-    public abstract class Repositorio<TEntidade, TContexto> : IRepositorioBase<TEntidade>
-        where TContexto : Contexto
+    public abstract class Repositorio<TEntidade> : IRepositorioBase<TEntidade>
         where TEntidade : Entidade
     {
-        protected UnidadeDeTrabalho<TContexto> UnidadeDeTrabalho { get; }
+        protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
 
-        protected Repositorio(UnidadeDeTrabalho<TContexto> unidadeDeTrabalho)
+        protected Repositorio(IUnidadeDeTrabalho unidadeDeTrabalho)
         {
             UnidadeDeTrabalho = unidadeDeTrabalho;
         }
