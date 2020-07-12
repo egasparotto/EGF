@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.DTOs.Mapeamentos", "EGF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.ServicosDeAplicacao.CRUD", "EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.CRUD\EGF.ServicosDeAplicacao.CRUD.csproj", "{888ADE0E-5FD8-4D17-B6EF-0AFDCC30EF6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Dominio.Autenticacao", "EGF.Dominio.Autenticacao\EGF.Dominio.Autenticacao.csproj", "{AC3365C0-4380-4F13-A4F8-4A497FF34C71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Dados.EFCore.Autenticacao", "EGF.Dados\EGF.Dados.EFCore.Autenticacao\EGF.Dados.EFCore.Autenticacao.csproj", "{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,14 @@ Global
 		{888ADE0E-5FD8-4D17-B6EF-0AFDCC30EF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{888ADE0E-5FD8-4D17-B6EF-0AFDCC30EF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{888ADE0E-5FD8-4D17-B6EF-0AFDCC30EF6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC3365C0-4380-4F13-A4F8-4A497FF34C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC3365C0-4380-4F13-A4F8-4A497FF34C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3365C0-4380-4F13-A4F8-4A497FF34C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC3365C0-4380-4F13-A4F8-4A497FF34C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

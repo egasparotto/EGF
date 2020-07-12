@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>1.0.0.5</Version>
+    <Authors>Eduardo Augusto Gasparotto</Authors>
+    <Description>Classes de Dominio para Autenticação do EGF</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EGF.Dominio\EGF.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Eduardo Augusto Gasparotto</Authors>
+    <Version>1.0.0.5</Version>
+    <Description>Classes de Dados para Autenticação do EGF</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EGF.Dominio.Autenticacao\EGF.Dominio.Autenticacao.csproj" />
+    <ProjectReference Include="..\EGF.Dados.EFCore\EGF.Dados.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>
