@@ -5,6 +5,7 @@ using EGF.Dominio.UnidadesDeTrabalho;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EGF.Dados.EFCore.Repositorios
 {
@@ -47,5 +48,37 @@ namespace EGF.Dados.EFCore.Repositorios
         {
             UnidadeDeTrabalho.Contexto.Remove(entidade);
         }
+
+        public virtual async Task<IEnumerable<TEntidade>> BuscarAsync()
+        {
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>());
+        }
+
+        public async Task<IEnumerable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func)
+        {
+            var retorno = await BuscarAsync();
+            return retorno.Where(func).AsQueryable();
+        }
+
+        public virtual async Task<TEntidade> EditarAsync(TEntidade entidade)
+        {
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>().Update(entidade).Entity);
+        }
+
+        public virtual async Task<TEntidade> InserirAsync(TEntidade entidade)
+        {
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Add(entidade).Entity);
+        }
+
+        public virtual async Task<int> NumeroDeRegistrosAsync()
+        {
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>().Count());
+        }
+
+        public virtual async Task RemoverAsync(TEntidade entidade)
+        {
+            await Task.FromResult(UnidadeDeTrabalho.Contexto.Remove(entidade));
+        }
+
     }
 }

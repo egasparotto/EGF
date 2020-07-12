@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EGF.Dominio.Repositorios
 {
@@ -14,5 +15,12 @@ namespace EGF.Dominio.Repositorios
         public TEntidade Editar(TEntidade entidade);
         public void Remover(TEntidade entidade);
         public int NumeroDeRegistros();
+
+        Task<IEnumerable<TEntidade>> BuscarAsync();
+        Task<IEnumerable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func);
+        Task<TEntidade> EditarAsync(TEntidade entidade);
+        Task<TEntidade> InserirAsync(TEntidade entidade);
+        Task<int> NumeroDeRegistrosAsync();
+        Task RemoverAsync(TEntidade entidade);
     }
 }
