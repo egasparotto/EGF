@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0.4</Version>
+    <Authors>Eduardo Augusto Gasparotto</Authors>
+    <Description>Mapeamentos de DTOs do EGF</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EGF.Dominio\EGF.Dominio.csproj" />
+    <ProjectReference Include="..\EGF.DTOs\EGF.DTOs.csproj" />
+  </ItemGroup>
+
+</Project>
