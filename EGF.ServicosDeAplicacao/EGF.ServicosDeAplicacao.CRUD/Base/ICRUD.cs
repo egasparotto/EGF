@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
-    interface ICRUD<TDTO>
+    public interface ICRUD<TDTO>
         where TDTO : DTODeEntidade
     {
         TDTO Inserir(TDTO dto);
