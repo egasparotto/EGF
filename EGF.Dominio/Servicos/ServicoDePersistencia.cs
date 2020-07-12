@@ -6,12 +6,13 @@ using System.Collections.Generic;
 
 namespace EGF.Dominio.Servicos
 {
-    public abstract class ServicoDePersistencia<TEntidade> : IServicoDePersistencia<TEntidade>
+    public abstract class ServicoDePersistencia<TEntidade, TRepositorio> : IServicoDePersistencia<TEntidade>
+        where TRepositorio : IRepositorioBase<TEntidade>
         where TEntidade : Entidade
     {
-        protected IRepositorioBase<TEntidade> Repositorio { get; }
+        protected TRepositorio Repositorio { get; }
 
-        protected ServicoDePersistencia(IRepositorioBase<TEntidade> repositorio)
+        protected ServicoDePersistencia(TRepositorio repositorio)
         {
             Repositorio = repositorio;
         }
