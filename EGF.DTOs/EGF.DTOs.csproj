@@ -6,13 +6,11 @@
     <Version>1.0.0.4</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Company>Eduardo Augusto Gasparotto</Company>
-    <Description>Classe de dados para Entity Framework Core do EGF</Description>
-    <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
+    <Description>Classes de DTO do EGF</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EGF.Dominio\EGF.Dominio.csproj" />
+    <ProjectReference Include="..\EGF.Dominio\EGF.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
