@@ -3,12 +3,11 @@ using EGF.Dominio.Repositorios;
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EGF.Dominio.Servicos
 {
-    public abstract class ServicoDePersistencia<TEntidade>: IServicoDePersistencia<TEntidade>
-        where TEntidade: Entidade
+    public abstract class ServicoDePersistencia<TEntidade> : IServicoDePersistencia<TEntidade>
+        where TEntidade : Entidade
     {
         protected IRepositorioBase<TEntidade> Repositorio { get; }
 

@@ -4,10 +4,6 @@ using EGF.Dominio.Entidades;
 using EGF.DTOs.Entidades;
 using EGF.DTOs.Mapeamentos.Base;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EGF.DTOs.Mapeamentos.Entidades
 {
     public class MapeadorDeDTODeEntidadeComId : MapeadorDeDTO<EntidadeComId, DTODeEntidadeComID>
@@ -16,14 +12,14 @@ namespace EGF.DTOs.Mapeamentos.Entidades
         {
             mapeamento
                 .ForMember(x => x.Id, x => x.MapFrom(y => y.Id))
-                .IncludeBase<DTODeEntidade,Entidade>();
+                .IncludeBase<DTODeEntidade, Entidade>();
         }
 
         public override void EntidadeParaDTO(IMappingExpression<EntidadeComId, DTODeEntidadeComID> mapeamento)
         {
             mapeamento
                 .ForMember(x => x.Id, x => x.MapFrom(y => y.Id))
-                .IncludeBase<Entidade,DTODeEntidade>();
+                .IncludeBase<Entidade, DTODeEntidade>();
         }
     }
 }

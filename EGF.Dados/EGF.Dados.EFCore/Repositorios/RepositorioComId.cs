@@ -1,6 +1,4 @@
-﻿using EGF.Dados.EFCore.Contextos;
-using EGF.Dados.EFCore.UnidadesDeTrabalho;
-using EGF.Dominio.Entidades;
+﻿using EGF.Dominio.Entidades;
 using EGF.Dominio.Repositorios;
 using EGF.Dominio.UnidadesDeTrabalho;
 

@@ -1,5 +1,4 @@
-﻿using EGF.Dados.EFCore.Contextos;
-using EGF.Dominio.Contextos;
+﻿using EGF.Dominio.Contextos;
 using EGF.Dominio.UnidadesDeTrabalho;
 
 using System;
