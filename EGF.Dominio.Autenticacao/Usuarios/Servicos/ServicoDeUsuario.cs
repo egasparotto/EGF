@@ -1,13 +1,14 @@
 ﻿using EGF.Dominio.Autenticacao.Usuarios.Entidades;
 using EGF.Dominio.Autenticacao.Usuarios.Repositorios;
 using EGF.Dominio.Servicos;
+using EGF.Dominio.UnidadesDeTrabalho;
+using EGF.ServicosDeAplicacao.Utils.Autenticacao;
 
 using Microsoft.AspNetCore.Identity;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,8 +16,40 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 {
     public class ServicoDeUsuario : ServicoDePersistencia<Usuario, IRepositorioDeUsuario>, IServicoDeUsuario
     {
-        public ServicoDeUsuario(IRepositorioDeUsuario repositorio) : base(repositorio)
+        protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
+
+        public ServicoDeUsuario(IRepositorioDeUsuario repositorio, IUnidadeDeTrabalho unidadeDeTrabalho) : base(repositorio)
         {
+            UnidadeDeTrabalho = unidadeDeTrabalho;
+        }
+
+        public override Usuario Inserir(Usuario entidade)
+        {
+            if (entidade != null)
+            {
+                if (!string.IsNullOrEmpty(entidade.Senha))
+                {
+                    entidade.Senha = Criptografia.Criptografa(entidade.Senha);
+                }
+            }
+            return base.Inserir(entidade);
+        }
+
+        public override Usuario Editar(Usuario entidade)
+        {
+            var registroAntigo = UnidadeDeTrabalho.Contexto.ObterAntesDaAlteracao(entidade);
+            if (entidade != null)
+            {
+                if (entidade.Senha == null || entidade.Senha == registroAntigo.Senha)
+                {
+                    entidade.Senha = registroAntigo.Senha;
+                }
+                else
+                {
+                    entidade.Senha = Criptografia.Criptografa(entidade.Senha);
+                }
+            }
+            return base.Editar(entidade);
         }
 
         public async Task<IdentityResult> CreateAsync(Usuario user, CancellationToken cancellationToken)
@@ -24,6 +57,7 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             try
             {
                 await Repositorio.InserirAsync(user);
+                UnidadeDeTrabalho.Commit();
                 return IdentityResult.Success;
             }
             catch (Exception e)
@@ -39,6 +73,7 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             try
             {
                 await Repositorio.RemoverAsync(user);
+                UnidadeDeTrabalho.Commit();
                 return IdentityResult.Success;
             }
             catch (Exception e)
@@ -167,6 +202,8 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             try
             {
                 await Repositorio.EditarAsync(user);
+                UnidadeDeTrabalho.Commit();
+
                 return IdentityResult.Success;
             }
             catch (Exception e)
@@ -189,22 +226,19 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 
         public async Task<IList<string>> GetRolesAsync(Usuario user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
-            //var perfil = await Task.FromResult(user.Perfil.CodigoInterno);
-            //return new List<string>() { perfil };
+            var perfil = await Task.FromResult(user.Perfil.CodigoInterno);
+            return new List<string>() { perfil };
         }
 
         public async Task<bool> IsInRoleAsync(Usuario user, string roleName, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
-            //return await Task.FromResult(user.Perfil.CodigoInterno == roleName);
+            return await Task.FromResult(user.Perfil.CodigoInterno == roleName);
         }
 
         public async Task<IList<Usuario>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
-            //var usuarios = await Repositorio.BuscarAsync(x => x.Perfil.CodigoInterno == roleName);
-            //return usuarios.ToList();
+            var usuarios = await Repositorio.BuscarAsync(x => x.Perfil.CodigoInterno == roleName);
+            return usuarios.ToList();
         }
 
     }

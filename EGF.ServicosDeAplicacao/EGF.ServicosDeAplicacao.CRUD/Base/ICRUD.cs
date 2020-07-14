@@ -1,9 +1,4 @@
-﻿using EGF.Dominio.Entidades;
-using EGF.DTOs.Entidades;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using EGF.DTOs.Entidades;
 
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {

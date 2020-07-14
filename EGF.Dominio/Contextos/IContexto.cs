@@ -15,5 +15,6 @@ namespace EGF.Dominio.Contextos
         EntityEntry<T> Update<T>(T entidade) where T : class;
         EntityEntry<T> Remove<T>(T entidade) where T : class;
         DatabaseFacade Database { get; }
+        T ObterAntesDaAlteracao<T>(T entidade) where T : class;
     }
 }

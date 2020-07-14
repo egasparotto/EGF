@@ -14,7 +14,11 @@ namespace EGF.Dados.EFCore.Autenticacao.Usuarios.Mapeamentos
             builder.Property(x => x.Email).HasColumnName("EMAIL");
             builder.Property(x => x.Senha).HasColumnName("SENHA");
             builder.Property(x => x.EmailConfirmado).HasColumnName("EMAILCONFIRMADO");
-            builder.ToTable("USUARIOS");
+            builder.Property(x => x.IdDoPerfil).HasColumnName("IDDOPERFIL");
+
+            builder.HasOne(x => x.Perfil).WithMany().HasForeignKey(x => x.IdDoPerfil).OnDelete(DeleteBehavior.Restrict);
+
+            builder.ToTable("USUARIOS").HasKey(x => x.Id);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EGF.Dados.EFCore.Repositorios
 {
-    public abstract class Repositorio<TEntidade> : IRepositorioBase<TEntidade>
+    public abstract class Repositorio<TEntidade> : IRepositorio<TEntidade>
         where TEntidade : Entidade
     {
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }

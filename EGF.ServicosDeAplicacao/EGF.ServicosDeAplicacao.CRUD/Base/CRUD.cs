@@ -5,10 +5,6 @@ using EGF.Dominio.Servicos;
 using EGF.Dominio.UnidadesDeTrabalho;
 using EGF.DTOs.Entidades;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
     public abstract class CRUD<TEntidade, TServico, TDTO> : ICRUD<TDTO>

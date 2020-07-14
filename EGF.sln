@@ -12,15 +12,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Dados.EFCore", "EGF.Dados\EGF.Dados.EFCore\EGF.Dados.EFCore.csproj", "{FFEF15D2-A084-4B92-94F9-D5D104D646AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.DTOs", "EGF.DTOs\EGF.DTOs.csproj", "{10505B20-A8B2-48D8-8985-505C4D175097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.DTOs", "EGF.DTOs\EGF.DTOs.csproj", "{10505B20-A8B2-48D8-8985-505C4D175097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.DTOs.Mapeamentos", "EGF.DTOs.Mapeamentos\EGF.DTOs.Mapeamentos.csproj", "{15DD7991-7763-4661-8E84-47FE515611B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.DTOs.Mapeamentos", "EGF.DTOs.Mapeamentos\EGF.DTOs.Mapeamentos.csproj", "{15DD7991-7763-4661-8E84-47FE515611B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.ServicosDeAplicacao.CRUD", "EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.CRUD\EGF.ServicosDeAplicacao.CRUD.csproj", "{888ADE0E-5FD8-4D17-B6EF-0AFDCC30EF6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.ServicosDeAplicacao.CRUD", "EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.CRUD\EGF.ServicosDeAplicacao.CRUD.csproj", "{888ADE0E-5FD8-4D17-B6EF-0AFDCC30EF6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Dominio.Autenticacao", "EGF.Dominio.Autenticacao\EGF.Dominio.Autenticacao.csproj", "{AC3365C0-4380-4F13-A4F8-4A497FF34C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Dominio.Autenticacao", "EGF.Dominio.Autenticacao\EGF.Dominio.Autenticacao.csproj", "{AC3365C0-4380-4F13-A4F8-4A497FF34C71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Dados.EFCore.Autenticacao", "EGF.Dados\EGF.Dados.EFCore.Autenticacao\EGF.Dados.EFCore.Autenticacao.csproj", "{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Dados.EFCore.Autenticacao", "EGF.Dados\EGF.Dados.EFCore.Autenticacao\EGF.Dados.EFCore.Autenticacao.csproj", "{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.ServicosDeAplicacao.Utils", "EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.Utils\EGF.ServicosDeAplicacao.Utils.csproj", "{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

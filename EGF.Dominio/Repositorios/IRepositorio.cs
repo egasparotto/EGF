@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EGF.Dominio.Repositorios
 {
-    public interface IRepositorioBase<TEntidade>
+    public interface IRepositorio<TEntidade>
         where TEntidade : Entidade
     {
         public IEnumerable<TEntidade> Buscar();

@@ -3,6 +3,10 @@ using EGF.Dominio.Contextos;
 
 using Microsoft.EntityFrameworkCore;
 
+using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+
 namespace EGF.Dados.EFCore.Contextos
 {
     public abstract class Contexto : DbContext, IContexto
@@ -19,5 +23,17 @@ namespace EGF.Dados.EFCore.Contextos
         }
 
         public abstract void MapearBancoDeDados(ModelBuilder modelBuilder);
+
+        public T ObterAntesDaAlteracao<T>(T entidade) 
+            where T : class
+        {
+            var nomesChaves = Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties.Select(x => x.Name);
+            var valoresChaves = typeof(T).GetProperties().Where(x => nomesChaves.Contains(x.Name)).Select(x => x.GetValue(entidade)).ToArray();
+
+            DbSet<T> dbSet = Set<T>();
+            T entidadeAntesDaAlteracao = dbSet.Find(valoresChaves);
+            Entry(entidadeAntesDaAlteracao).State = EntityState.Detached;
+            return entidadeAntesDaAlteracao;
+        }
     }
 }
