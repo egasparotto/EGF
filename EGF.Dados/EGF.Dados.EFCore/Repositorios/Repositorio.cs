@@ -19,14 +19,14 @@ namespace EGF.Dados.EFCore.Repositorios
             UnidadeDeTrabalho = unidadeDeTrabalho;
         }
 
-        public virtual IEnumerable<TEntidade> Buscar()
+        public virtual IQueryable<TEntidade> Buscar()
         {
             return UnidadeDeTrabalho.Contexto.Set<TEntidade>();
         }
 
-        public virtual IEnumerable<TEntidade> Buscar(Func<TEntidade, bool> pesquisa)
+        public virtual IQueryable<TEntidade> Buscar(Func<TEntidade, bool> pesquisa)
         {
-            return UnidadeDeTrabalho.Contexto.Set<TEntidade>().Where(pesquisa);
+            return UnidadeDeTrabalho.Contexto.Set<TEntidade>().Where(pesquisa).AsQueryable();
         }
 
         public virtual TEntidade Editar(TEntidade entidade)
@@ -49,12 +49,12 @@ namespace EGF.Dados.EFCore.Repositorios
             UnidadeDeTrabalho.Contexto.Remove(entidade);
         }
 
-        public virtual async Task<IEnumerable<TEntidade>> BuscarAsync()
+        public virtual async Task<IQueryable<TEntidade>> BuscarAsync()
         {
             return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>());
         }
 
-        public async Task<IEnumerable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func)
+        public async Task<IQueryable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func)
         {
             var retorno = await BuscarAsync();
             return retorno.Where(func).AsQueryable();

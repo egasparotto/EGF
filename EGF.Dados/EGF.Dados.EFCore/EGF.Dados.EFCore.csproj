@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.0.7</Version>
+    <Version>1.0.0.8</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Company>Eduardo Augusto Gasparotto</Company>
     <Description>Classe de dados para Entity Framework Core do EGF</Description>
