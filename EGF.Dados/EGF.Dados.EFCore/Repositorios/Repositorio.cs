@@ -26,7 +26,7 @@ namespace EGF.Dados.EFCore.Repositorios
 
         public virtual IQueryable<TEntidade> Buscar(Func<TEntidade, bool> pesquisa)
         {
-            return UnidadeDeTrabalho.Contexto.Set<TEntidade>().Where(pesquisa).AsQueryable();
+            return Buscar().Where(pesquisa).AsQueryable();
         }
 
         public virtual TEntidade Editar(TEntidade entidade)
@@ -51,13 +51,12 @@ namespace EGF.Dados.EFCore.Repositorios
 
         public virtual async Task<IQueryable<TEntidade>> BuscarAsync()
         {
-            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>());
+            return await Task.FromResult(Buscar());
         }
 
         public async Task<IQueryable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func)
         {
-            var retorno = await BuscarAsync();
-            return retorno.Where(func).AsQueryable();
+            return (await BuscarAsync()).Where(func).AsQueryable();
         }
 
         public virtual async Task<TEntidade> EditarAsync(TEntidade entidade)
