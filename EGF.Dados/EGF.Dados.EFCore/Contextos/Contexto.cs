@@ -24,7 +24,7 @@ namespace EGF.Dados.EFCore.Contextos
 
         public abstract void MapearBancoDeDados(ModelBuilder modelBuilder);
 
-        public T ObterAntesDaAlteracao<T>(T entidade) 
+        public virtual T ObterAntesDaAlteracao<T>(T entidade) 
             where T : class
         {
             var nomesChaves = Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties.Select(x => x.Name);
