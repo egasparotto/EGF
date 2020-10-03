@@ -10,14 +10,16 @@ namespace EGF.Dados.EFCore.Fabricas
 {
     public class FabricaDeConexaoSQLServer : FabricaDeConexao
     {
-        public FabricaDeConexaoSQLServer(IGerenciadorDeLicenca gerenciadorDeLicenca) : base(gerenciadorDeLicenca)
+        private readonly string _assemblyMigracao;
+        public FabricaDeConexaoSQLServer(IGerenciadorDeLicenca gerenciadorDeLicenca, string assemblyMigracao) : base(gerenciadorDeLicenca)
         {
+            _assemblyMigracao = assemblyMigracao;
         }
 
         public override DbContextOptions Fabricar()
         {
             DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-            builder.UseSqlServer(ConnectionString());
+            builder.UseSqlServer(ConnectionString(), x => x.MigrationsAssembly(_assemblyMigracao));
             var dbContext = new DbContext(builder.Options);
             return builder.Options;
         }
