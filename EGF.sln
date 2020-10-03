@@ -22,7 +22,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Dominio.Autenticacao", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Dados.EFCore.Autenticacao", "EGF.Dados\EGF.Dados.EFCore.Autenticacao\EGF.Dados.EFCore.Autenticacao.csproj", "{FF3054FE-6CD2-4CBE-9B5F-AD624225B33D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.ServicosDeAplicacao.Utils", "EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.Utils\EGF.ServicosDeAplicacao.Utils.csproj", "{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.ServicosDeAplicacao.Utils", "EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.Utils\EGF.ServicosDeAplicacao.Utils.csproj", "{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Licenciamento.Core", "EGF.Licenciamento\EGF.Licenciamento.Core\EGF.Licenciamento.Core.csproj", "{5767EFA7-FEF8-415E-A259-DA0694389C05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Licenciamento.WEB", "EGF.Licenciamento\EGF.Licenciamento.WEB\EGF.Licenciamento.WEB.csproj", "{FD3A32E7-7832-44B9-A857-9B1738672171}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +66,14 @@ Global
 		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05E670B6-8CD4-4A3F-92AF-F6141AFBC408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5767EFA7-FEF8-415E-A259-DA0694389C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5767EFA7-FEF8-415E-A259-DA0694389C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5767EFA7-FEF8-415E-A259-DA0694389C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5767EFA7-FEF8-415E-A259-DA0694389C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD3A32E7-7832-44B9-A857-9B1738672171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD3A32E7-7832-44B9-A857-9B1738672171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD3A32E7-7832-44B9-A857-9B1738672171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD3A32E7-7832-44B9-A857-9B1738672171}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

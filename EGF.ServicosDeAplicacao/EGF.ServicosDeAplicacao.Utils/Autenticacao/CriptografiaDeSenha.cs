@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace EGF.ServicosDeAplicacao.Utils.Autenticacao
 {
-    public class Criptografia<TEntidade> : IPasswordHasher<TEntidade> where TEntidade : class
+    public class CriptografiaDeSenha<TEntidade> : IPasswordHasher<TEntidade> where TEntidade : class
     {
         public string HashPassword(TEntidade entidade, string password)
         {

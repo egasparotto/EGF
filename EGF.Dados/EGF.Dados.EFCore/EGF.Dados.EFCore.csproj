@@ -3,16 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.0.10</Version>
+    <Version>1.0.0.11</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Company>Eduardo Augusto Gasparotto</Company>
     <Description>Classe de dados para Entity Framework Core do EGF</Description>
-    <AssemblyVersion>1.0.0.10</AssemblyVersion>
-    <FileVersion>1.0.0.10</FileVersion>
+    <AssemblyVersion>1.0.0.11</AssemblyVersion>
+    <FileVersion>1.0.0.11</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\EGF.Dominio\EGF.Dominio.csproj" />
+    <ProjectReference Include="..\..\EGF.Licenciamento\EGF.Licenciamento.Core\EGF.Licenciamento.Core.csproj" />
   </ItemGroup>
 
 </Project>

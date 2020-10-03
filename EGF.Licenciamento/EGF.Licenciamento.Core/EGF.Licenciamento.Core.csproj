@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyVersion>1.0.0.11</AssemblyVersion>
+    <Version>1.0.0.11</Version>
+    <Authors>Eduardo Augusto Gasparotto</Authors>
+    <Description>Camada core do licenciamento</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EGF.ServicosDeAplicacao\EGF.ServicosDeAplicacao.Utils\EGF.ServicosDeAplicacao.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

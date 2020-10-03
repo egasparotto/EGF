@@ -46,7 +46,7 @@ namespace EGF.Dominio.Autenticacao.Extensoes
             }
 
             services.AddIdentity<Usuario, Perfil>().AddDefaultTokenProviders();
-            services.AddScoped<IPasswordHasher<Usuario>, Criptografia<Usuario>>();
+            services.AddScoped<IPasswordHasher<Usuario>, CriptografiaDeSenha<Usuario>>();
             services.AddTransient<IUserStore<Usuario>, ServicoDeUsuario>();
             services.AddTransient<IRoleStore<Perfil>, ServicoDePerfil>();
             services.AddTransient<IServicoDeUsuario, ServicoDeUsuario>();

@@ -1,4 +1,5 @@
 ﻿
+using EGF.Dados.EFCore.Fabricas;
 using EGF.Dominio.Contextos;
 
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ namespace EGF.Dados.EFCore.Contextos
 {
     public abstract class Contexto : DbContext, IContexto
     {
-        public Contexto(DbContextOptions options) : base(options)
+        public Contexto(IFabricaDeConexao fabrica) : base(fabrica.Fabricar())
         {
 
         }

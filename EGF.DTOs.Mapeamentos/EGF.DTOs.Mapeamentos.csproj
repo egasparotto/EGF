@@ -3,9 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.0.8</Version>
+    <Version>1.0.0.11</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Mapeamentos de DTOs do EGF</Description>
+    <AssemblyVersion>1.0.0.11</AssemblyVersion>
+    <FileVersion>1.0.0.11</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
