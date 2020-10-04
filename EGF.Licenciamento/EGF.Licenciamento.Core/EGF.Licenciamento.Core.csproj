@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>1.0.0.13</AssemblyVersion>
-    <Version>1.0.0.13</Version>
+    <AssemblyVersion>1.0.0.14</AssemblyVersion>
+    <Version>1.0.0.14</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Camada core do licenciamento</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

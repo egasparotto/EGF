@@ -33,18 +33,18 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
                 try
                 {
                     var localArquivo = LocalDoArquivo();
-                    if (localArquivo != null)
+                    if (!File.Exists(localArquivo))
                     {
-                        var conteudoArquivo = CriptografiaAES.Descriptografa(_hash, File.ReadAllText(localArquivo));
-                        licenca = JsonSerializer.Deserialize<Licenca>(conteudoArquivo);
-                        _licencas.Add(NomeDaLicenca(), licenca);
-                        return licenca;
+                        return new Licenca();
                     }
-                    throw new Exception("Erro ao localizar licença.");
+                    var conteudoArquivo = CriptografiaAES.Descriptografa(_hash, File.ReadAllText(localArquivo));
+                    licenca = JsonSerializer.Deserialize<Licenca>(conteudoArquivo);
+                    _licencas.Add(NomeDaLicenca(), licenca);
+                    return licenca;
                 }
-                catch
+                catch (Exception e)
                 {
-                    throw new Exception("Erro ao localizar licença.");
+                    throw new Exception("Erro ao localizar licença.", e);
                 }
             }
 
@@ -54,8 +54,41 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
         public void SalvarLicenca(Licenca licenca)
         {
             var localArquivo = LocalDoArquivo();
-            var conteudoArquivo = CriptografiaAES.Criptografa(_hash,JsonSerializer.Serialize(licenca));
+            var caminho = Path.GetDirectoryName(localArquivo);
+            if (!Directory.Exists(caminho))
+            {
+                Directory.CreateDirectory(caminho);
+            }
+            var conteudoArquivo = CriptografiaAES.Criptografa(_hash, JsonSerializer.Serialize(licenca));
             File.WriteAllText(localArquivo, conteudoArquivo);
+        }
+
+        public string GerarHashDaLicenca(Licenca licenca)
+        {
+            return CriptografiaAES.Criptografa(_hash, JsonSerializer.Serialize(licenca));
+        }
+
+        public void AtivarLicenca(string hash)
+        {
+            try
+            {
+                var licenca = JsonSerializer.Deserialize<Licenca>(CriptografiaAES.Descriptografa(_hash, hash));
+                SalvarLicenca(licenca);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro ao ativar licença", e);
+            }
+        }
+
+        public bool LicencaExiste()
+        {
+            var localDoArquivo = LocalDoArquivo();
+            if (!String.IsNullOrEmpty(localDoArquivo))
+            {
+                return File.Exists(localDoArquivo);
+            }
+            return false;
         }
 
         protected abstract string LocalDoArquivo();
