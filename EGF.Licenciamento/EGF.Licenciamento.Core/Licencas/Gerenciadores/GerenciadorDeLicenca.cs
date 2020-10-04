@@ -30,22 +30,22 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
             }
             else
             {
-                try
-                {
+                //try
+                //{
                     var localArquivo = LocalDoArquivo();
-                    if (localArquivo != null)
-                    {
+                    //if (localArquivo != null)
+                    //{
                         var conteudoArquivo = CriptografiaAES.Descriptografa(_hash,File.ReadAllText(localArquivo));
                         licenca = JsonSerializer.Deserialize<Licenca>(conteudoArquivo);
                         _licencas.Add(NomeDaLicenca(), licenca);
                         return licenca;
-                    }
-                    throw new Exception("Erro ao localizar licença.");
-                }
-                catch
-                {
-                    throw new Exception("Erro ao localizar licença.");
-                }
+                    //}
+                    //throw new Exception("Erro ao localizar licença.");
+                //}
+                //catch
+                //{
+                //    throw new Exception("Erro ao localizar licença.");
+                //}
             }
 
         }
