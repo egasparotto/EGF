@@ -13,5 +13,6 @@ namespace EGF.Licenciamento.Core.Licencas.Entidades
         public string UsuarioBanco { get; set; }
         public string SenhaBanco { get; set; }
         public string NomeBanco { get; set; }
+        public string ServidorKafka { get; set; }
     }
 }

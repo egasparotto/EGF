@@ -40,6 +40,9 @@ namespace EGF.Licenciamento.Console
             System.Console.WriteLine($"Senha do Banco de Dados:");
             var senhaBanco = System.Console.ReadLine();
 
+            System.Console.WriteLine($"Servidor do Kafka:");
+            var servidorKafka = System.Console.ReadLine();
+
             var licenca = new Licenca()
             {
                 DataInicio = inicioValidade,
@@ -47,7 +50,8 @@ namespace EGF.Licenciamento.Console
                 NomeBanco = nomeBanco,
                 ServidorBanco = servidorBanco,
                 UsuarioBanco = usuarioBanco,
-                SenhaBanco = senhaBanco
+                SenhaBanco = senhaBanco,
+                ServidorKafka = servidorKafka
             };
             System.Console.WriteLine();
             System.Console.WriteLine("Hash Gerado:");

@@ -1,6 +1,5 @@
-﻿
-using EGF.Dados.EFCore.Fabricas;
-using EGF.Dominio.Contextos;
+﻿using EGF.Dominio.Contextos;
+using EGF.Dominio.Fabricas;
 
 using Microsoft.EntityFrameworkCore;
 

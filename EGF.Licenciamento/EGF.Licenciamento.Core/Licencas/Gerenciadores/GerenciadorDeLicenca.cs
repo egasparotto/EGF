@@ -68,11 +68,16 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
             return CriptografiaAES.Criptografa(_hash, JsonSerializer.Serialize(licenca));
         }
 
+        public Licenca ObterLicencaDoHash(string hash)
+        {
+            return JsonSerializer.Deserialize<Licenca>(CriptografiaAES.Descriptografa(_hash, hash));
+        }
+
         public void AtivarLicenca(string hash)
         {
             try
             {
-                var licenca = JsonSerializer.Deserialize<Licenca>(CriptografiaAES.Descriptografa(_hash, hash));
+                var licenca = ObterLicencaDoHash(hash);
                 SalvarLicenca(licenca);
             }
             catch (Exception e)

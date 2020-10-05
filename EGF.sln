@@ -28,7 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Licenciamento.Core", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Licenciamento.WEB", "EGF.Licenciamento\EGF.Licenciamento.WEB\EGF.Licenciamento.WEB.csproj", "{FD3A32E7-7832-44B9-A857-9B1738672171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Licenciamento.Console", "EGF.Licenciamento\EGF.Licenciamento.Console\EGF.Licenciamento.Console.csproj", "{C146D6F9-E26D-4149-9EEF-5094D0F3E2A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Licenciamento.Console", "EGF.Licenciamento\EGF.Licenciamento.Console\EGF.Licenciamento.Console.csproj", "{C146D6F9-E26D-4149-9EEF-5094D0F3E2A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Processos", "EGF.Processos\EGF.Processos.csproj", "{ABF7287D-F590-4F54-9464-B82A0CC794FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{C146D6F9-E26D-4149-9EEF-5094D0F3E2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C146D6F9-E26D-4149-9EEF-5094D0F3E2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C146D6F9-E26D-4149-9EEF-5094D0F3E2A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,5 +13,6 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
         string GerarHashDaLicenca(Licenca licenca);
         void AtivarLicenca(string hash);
         bool LicencaExiste();
+        Licenca ObterLicencaDoHash(string hash);
     }
 }

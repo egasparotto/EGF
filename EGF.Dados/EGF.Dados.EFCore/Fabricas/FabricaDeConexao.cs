@@ -1,4 +1,5 @@
-﻿using EGF.Licenciamento.Core.Licencas.Gerenciadores;
+﻿using EGF.Dominio.Fabricas;
+using EGF.Licenciamento.Core.Licencas.Gerenciadores;
 
 using Microsoft.EntityFrameworkCore;
 

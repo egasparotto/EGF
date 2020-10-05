@@ -5,13 +5,18 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Classes de Dominio do EGF</Description>
-    <AssemblyVersion>1.0.0.11</AssemblyVersion>
-    <FileVersion>1.0.0.11</FileVersion>
-    <Version>1.0.0.11</Version>
+    <AssemblyVersion>1.0.0.15</AssemblyVersion>
+    <FileVersion>1.0.0.15</FileVersion>
+    <Version>1.0.0.15</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" Version="1.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EGF.Licenciamento\EGF.Licenciamento.Core\EGF.Licenciamento.Core.csproj" />
   </ItemGroup>
 
 </Project>

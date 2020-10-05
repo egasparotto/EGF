@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 
-namespace EGF.Dados.EFCore.Fabricas
+namespace EGF.Dominio.Fabricas
 {
     public interface IFabricaDeConexao
     {
