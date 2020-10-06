@@ -19,15 +19,19 @@ namespace EGF.Dados.EFCore.Fabricas
         public override DbContextOptions Fabricar()
         {
             DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-            builder.UseSqlServer(ConnectionString(), x => x.MigrationsAssembly(_assemblyMigracao));
+            builder.UseSqlServer(ConnectionString(), x => {
+                if (!string.IsNullOrEmpty(_assemblyMigracao))
+                {
+                    x.MigrationsAssembly(_assemblyMigracao);
+                }
+            });
             var dbContext = new DbContext(builder.Options);
             return builder.Options;
         }
 
         private string ConnectionString()
         {
-            var licenca = GerenciadorDeLicenca.ObterLicenca();
-            return $"Server={licenca.ServidorBanco};Database={licenca.NomeBanco};User Id={licenca.UsuarioBanco};Password={licenca.SenhaBanco};";
+            return $"Server={Licenca.ServidorBanco};Database={Licenca.NomeBanco};User Id={Licenca.UsuarioBanco};Password={Licenca.SenhaBanco};";
         }
 
     }

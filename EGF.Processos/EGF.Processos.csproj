@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>1.0.0.16</Version>
+    <Version>1.0.0.17</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Company>Eduardo Augusto Gasparotto</Company>
     <Description>Gerenciador de processos do EGF</Description>
@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EGF.Dados\EGF.Dados.EFCore\EGF.Dados.EFCore.csproj" />
     <ProjectReference Include="..\EGF.Dominio\EGF.Dominio.csproj" />
     <ProjectReference Include="..\EGF.Licenciamento\EGF.Licenciamento.Core\EGF.Licenciamento.Core.csproj" />
   </ItemGroup>

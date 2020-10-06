@@ -5,9 +5,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Classes de Dominio do EGF</Description>
-    <AssemblyVersion>1.0.0.15</AssemblyVersion>
-    <FileVersion>1.0.0.15</FileVersion>
-    <Version>1.0.0.15</Version>
+    <AssemblyVersion>1.0.0.16</AssemblyVersion>
+    <FileVersion>1.0.0.16</FileVersion>
+    <Version>1.0.0.16</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -36,7 +36,7 @@ namespace EGF.Licenciamento.WEB.Gerenciadores
 
         protected override string NomeDaLicenca()
         {
-            return HttpContext.HttpContext.Request.Host.Host;
+            return HttpContext?.HttpContext?.Request?.Host.Host;
         }
     }
 }

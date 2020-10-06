@@ -24,7 +24,12 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
 
         public Licenca ObterLicenca()
         {
-            if (_licencas.TryGetValue(NomeDaLicenca(), out Licenca licenca))
+            var nomeLicenca = NomeDaLicenca();
+            if (nomeLicenca == null)
+            {
+                return new Licenca();
+            }
+            if (_licencas.TryGetValue(nomeLicenca, out Licenca licenca))
             {
                 return licenca;
             }
@@ -39,7 +44,7 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
                     }
                     var conteudoArquivo = CriptografiaAES.Descriptografa(_hash, File.ReadAllText(localArquivo));
                     licenca = JsonSerializer.Deserialize<Licenca>(conteudoArquivo);
-                    _licencas.Add(NomeDaLicenca(), licenca);
+                    _licencas.Add(nomeLicenca, licenca);
                     return licenca;
                 }
                 catch (Exception e)

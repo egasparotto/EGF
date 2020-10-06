@@ -1,12 +1,8 @@
 ﻿using Confluent.Kafka;
 
-using EGF.Dominio.Contextos;
 using EGF.Dominio.Entidades;
 using EGF.Dominio.Fabricas;
-using EGF.Dominio.UnidadesDeTrabalho;
 using EGF.Licenciamento.Core.Licencas.Gerenciadores;
-using EGF.Processos.Base;
-using EGF.Processos.Fabricas;
 using EGF.Processos.Interfaces;
 
 using Microsoft.Extensions.Configuration;
@@ -17,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -66,7 +61,7 @@ namespace EGF.Processos
                                 using var escopo = _services.CreateScope();
                                 var gerenciadorDeLicenca = escopo.ServiceProvider.GetService<IGerenciadorDeLicenca>();
                                 var licenca = gerenciadorDeLicenca.ObterLicencaDoHash(processo.Licenca);
-                                var fabricaDeConexao = (FabricaDeConexaoDeProcesso)escopo.ServiceProvider.GetService<IFabricaDeConexao>();
+                                var fabricaDeConexao = escopo.ServiceProvider.GetService<IFabricaDeConexao>();
                                 fabricaDeConexao.DefinirLicenca(licenca);
                                 var executor = escopo.ServiceProvider.GetRequiredService(tipoExecutor);
                                 var assembly = Assembly.Load(processo.Assembly);
@@ -76,7 +71,7 @@ namespace EGF.Processos
                                 c.Commit(message);
                             }
                         }
-                        catch
+                        catch(Exception e)
                         {
                             c.Commit(message);
                         }
