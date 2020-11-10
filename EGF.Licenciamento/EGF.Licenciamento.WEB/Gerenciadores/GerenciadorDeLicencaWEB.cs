@@ -1,13 +1,9 @@
-﻿using EGF.Licenciamento.Core.Licencas.Entidades;
-using EGF.Licenciamento.Core.Licencas.Gerenciadores;
+﻿using EGF.Licenciamento.Core.Licencas.Gerenciadores;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace EGF.Licenciamento.WEB.Gerenciadores
 {

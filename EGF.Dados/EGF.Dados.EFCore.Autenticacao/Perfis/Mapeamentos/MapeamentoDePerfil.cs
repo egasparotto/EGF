@@ -4,10 +4,6 @@ using EGF.Dominio.Autenticacao.Perfis.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EGF.Dados.EFCore.Autenticacao.Perfis.Mapeamentos
 {
     public class MapeamentoDePerfil : Mapeamento<Perfil>

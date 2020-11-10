@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>1.0.0.16</AssemblyVersion>
-    <Version>1.0.0.16</Version>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <Version>1.0.1.0</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Camada core do licenciamento</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <FileVersion>1.0.0.16</FileVersion>
+    <FileVersion>1.0.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

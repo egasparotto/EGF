@@ -3,7 +3,6 @@ using EGF.Dominio.Repositorios;
 using EGF.Dominio.UnidadesDeTrabalho;
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 

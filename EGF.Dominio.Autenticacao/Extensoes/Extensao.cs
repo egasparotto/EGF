@@ -16,7 +16,7 @@ namespace EGF.Dominio.Autenticacao.Extensoes
     {
         public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<IdentityOptions> identityOptions = null, Action<CookieAuthenticationOptions> cookieAuthenticationOptions = null)
         {
-            if(identityOptions == null)
+            if (identityOptions == null)
             {
                 identityOptions = new Action<IdentityOptions>(options =>
                 {
@@ -31,7 +31,7 @@ namespace EGF.Dominio.Autenticacao.Extensoes
                 });
             }
 
-            if(cookieAuthenticationOptions == null)
+            if (cookieAuthenticationOptions == null)
             {
                 cookieAuthenticationOptions = new Action<CookieAuthenticationOptions>(options =>
                 {

@@ -1,10 +1,6 @@
 ﻿using EGF.Dominio.Entidades;
 using EGF.Dominio.UnidadesDeTrabalho;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EGF.Processos.Base
 {
     public abstract class ExecutorDeProcesso<T> : IExecutorDeProcesso<T> where T : EntidadeDeProcesso

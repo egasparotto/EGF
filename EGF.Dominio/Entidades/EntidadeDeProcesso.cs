@@ -1,10 +1,4 @@
-﻿using EGF.Licenciamento.Core.Licencas.Entidades;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EGF.Dominio.Entidades
+﻿namespace EGF.Dominio.Entidades
 {
     public class EntidadeDeProcesso
     {

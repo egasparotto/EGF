@@ -3,11 +3,7 @@
 using EGF.Dominio.Entidades;
 using EGF.Licenciamento.Core.Licencas.Gerenciadores;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EGF.Dominio.Servicos

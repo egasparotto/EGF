@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace EGF.Dados.EFCore.Contextos
 {
@@ -24,7 +23,7 @@ namespace EGF.Dados.EFCore.Contextos
 
         public abstract void MapearBancoDeDados(ModelBuilder modelBuilder);
 
-        public virtual T ObterAntesDaAlteracao<T>(T entidade) 
+        public virtual T ObterAntesDaAlteracao<T>(T entidade)
             where T : class
         {
             var nomesChaves = Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties.Select(x => x.Name);

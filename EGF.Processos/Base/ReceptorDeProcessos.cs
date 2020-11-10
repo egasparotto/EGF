@@ -71,7 +71,7 @@ namespace EGF.Processos
                                 c.Commit(message);
                             }
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             c.Commit(message);
                         }

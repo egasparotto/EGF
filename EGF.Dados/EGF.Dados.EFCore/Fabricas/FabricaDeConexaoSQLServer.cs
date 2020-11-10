@@ -2,10 +2,6 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EGF.Dados.EFCore.Fabricas
 {
     public class FabricaDeConexaoSQLServer : FabricaDeConexao
@@ -19,7 +15,8 @@ namespace EGF.Dados.EFCore.Fabricas
         public override DbContextOptions Fabricar()
         {
             DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-            builder.UseSqlServer(ConnectionString(), x => {
+            builder.UseSqlServer(ConnectionString(), x =>
+            {
                 if (!string.IsNullOrEmpty(_assemblyMigracao))
                 {
                     x.MigrationsAssembly(_assemblyMigracao);
