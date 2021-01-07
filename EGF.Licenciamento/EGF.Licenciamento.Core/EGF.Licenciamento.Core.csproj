@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <Version>1.0.1.0</Version>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <Version>1.0.1.1</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Camada core do licenciamento</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <FileVersion>1.0.1.0</FileVersion>
+    <FileVersion>1.0.1.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

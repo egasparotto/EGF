@@ -39,7 +39,7 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
                     var localArquivo = LocalDoArquivo();
                     if (!File.Exists(localArquivo))
                     {
-                        return new Licenca();
+                        throw new FileNotFoundException("Erro ao localizar o arquivo: " + localArquivo);
                     }
                     var conteudoArquivo = CriptografiaAES.Descriptografa(_hash, File.ReadAllText(localArquivo));
                     licenca = JsonSerializer.Deserialize<Licenca>(conteudoArquivo);
