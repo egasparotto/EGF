@@ -7,8 +7,8 @@ using System.Collections.Generic;
 namespace EGF.Dominio.Servicos
 {
     public abstract class ServicoDePersistencia<TEntidade, TRepositorio> : IServicoDePersistencia<TEntidade>
-        where TRepositorio : IRepositorio<TEntidade>
-        where TEntidade : Entidade
+        where TRepositorio : IRepositorioComId<TEntidade>
+        where TEntidade : EntidadeComId
     {
         protected TRepositorio Repositorio { get; }
 
@@ -40,6 +40,11 @@ namespace EGF.Dominio.Servicos
         public virtual void Remover(TEntidade entidade)
         {
             Repositorio.Remover(entidade);
+        }
+
+        public TEntidade ObterPorID(int id)
+        {
+            return Repositorio.ObterPorId(id);
         }
     }
 }

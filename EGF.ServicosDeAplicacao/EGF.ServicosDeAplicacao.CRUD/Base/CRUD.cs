@@ -10,9 +10,9 @@ using System.Collections.Generic;
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
     public abstract class CRUD<TEntidade, TServico, TDTO> : ICRUD<TDTO>
-        where TEntidade : Entidade
+        where TEntidade : EntidadeComId
         where TServico : IServicoDePersistencia<TEntidade>
-        where TDTO : DTODeEntidade
+        where TDTO : DTODeEntidadeComID
     {
         protected TServico Servico { get; }
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
@@ -41,7 +41,12 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
 
         public virtual TDTO Editar(TDTO dto)
         {
-            var entidade = Mapeador.Map<TEntidade>(dto);
+            var entidade = Servico.ObterPorID(dto.Id);
+            if(entidade == null)
+            {
+                throw new System.Exception("Entidade não localizada para edição");
+            }
+            entidade = Mapeador.Map(dto, entidade);
             entidade = Servico.Editar(entidade);
             UnidadeDeTrabalho.Commit();
             return Mapeador.Map<TDTO>(entidade);

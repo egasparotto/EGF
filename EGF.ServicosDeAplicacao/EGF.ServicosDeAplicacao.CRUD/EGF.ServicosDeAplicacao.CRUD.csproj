@@ -5,8 +5,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Company>Eduardo Augusto Gasparotto</Company>
-    <Version>1.0.1.1</Version>
+    <Version>1.0.1.2</Version>
     <Description>Serviços de Aplicação do EGF</Description>
+    <AssemblyVersion>1.0.1.2</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
