@@ -5,6 +5,8 @@ using EGF.Dominio.Servicos;
 using EGF.Dominio.UnidadesDeTrabalho;
 using EGF.DTOs.Entidades;
 
+using System.Collections.Generic;
+
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
     public abstract class CRUD<TEntidade, TServico, TDTO> : ICRUD<TDTO>
@@ -21,6 +23,12 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
             Servico = servico;
             UnidadeDeTrabalho = unidadeDeTrabalho;
             Mapeador = mapeador;
+        }
+
+        public virtual IEnumerable<TDTO> ObterTodos()
+        {
+            var lista = Servico.Buscar();
+            return Mapeador.Map<IEnumerable<TDTO>>(lista);
         }
 
         public virtual TDTO Inserir(TDTO dto)

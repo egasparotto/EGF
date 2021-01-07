@@ -1,5 +1,7 @@
 ﻿using EGF.DTOs.Entidades;
 
+using System.Collections.Generic;
+
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
     public interface ICRUD<TDTO>
@@ -8,5 +10,6 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
         TDTO Inserir(TDTO dto);
         TDTO Editar(TDTO dto);
         void Remover(TDTO dto);
+        IEnumerable<TDTO> ObterTodos();
     }
 }
