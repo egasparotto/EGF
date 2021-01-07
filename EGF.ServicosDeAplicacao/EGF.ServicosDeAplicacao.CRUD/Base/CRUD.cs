@@ -58,5 +58,10 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
             Servico.Remover(entidade);
             UnidadeDeTrabalho.Commit();
         }
+
+        public virtual TDTO ObterPorId(int id)
+        {
+            return Mapeador.Map<TDTO>(Servico.ObterPorID(id));
+        }
     }
 }

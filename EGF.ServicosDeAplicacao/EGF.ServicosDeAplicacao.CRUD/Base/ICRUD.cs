@@ -11,5 +11,6 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
         TDTO Editar(TDTO dto);
         void Remover(TDTO dto);
         IEnumerable<TDTO> ObterTodos();
+        TDTO ObterPorId(int id);
     }
 }
