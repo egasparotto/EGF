@@ -92,7 +92,19 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
 
         public bool LicencaExiste()
         {
+            var nomeLicenca = NomeDaLicenca();
+            if (nomeLicenca == null)
+            {
+                return false;
+            }
+
+            if (_licencas.ContainsKey(nomeLicenca))
+            {
+                return true;
+            }
+
             var localDoArquivo = LocalDoArquivo();
+
             if (!String.IsNullOrEmpty(localDoArquivo))
             {
                 return File.Exists(localDoArquivo);
