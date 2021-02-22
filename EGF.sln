@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Licenciamento.Console",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGF.Processos", "EGF.Processos\EGF.Processos.csproj", "{ABF7287D-F590-4F54-9464-B82A0CC794FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGF.Dados.EFCore.SQLServer", "EGF.Dados\EGF.Dados.EFCore.SQLServer\EGF.Dados.EFCore.SQLServer.csproj", "{EFBC12B7-D013-4E97-9E78-CECD238D4715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABF7287D-F590-4F54-9464-B82A0CC794FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBC12B7-D013-4E97-9E78-CECD238D4715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBC12B7-D013-4E97-9E78-CECD238D4715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBC12B7-D013-4E97-9E78-CECD238D4715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBC12B7-D013-4E97-9E78-CECD238D4715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

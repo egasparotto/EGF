@@ -1,8 +1,9 @@
-﻿using EGF.Licenciamento.Core.Licencas.Gerenciadores;
+﻿using EGF.Dados.EFCore.Fabricas;
+using EGF.Licenciamento.Core.Licencas.Gerenciadores;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace EGF.Dados.EFCore.Fabricas
+namespace EGF.Dados.EFCore.SQLServer.Fabricas
 {
     public class FabricaDeConexaoSQLServer : FabricaDeConexao
     {
