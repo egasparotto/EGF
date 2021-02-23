@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Version>1.0.2.0</Version>
+    <Authors>Eduardo Augusto Gasparotto</Authors>
+    <Description>Classe de dados para CosmosDB com EF Core do EGF</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EGF.Dados.EFCore\EGF.Dados.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>
