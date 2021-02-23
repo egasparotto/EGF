@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 {
-    public class ServicoDeUsuario : ServicoDePersistencia<Usuario, IRepositorioDeUsuario>, IServicoDeUsuario
+    public class ServicoDeUsuario : ServicoDePersistencia<int,Usuario, IRepositorioDeUsuario>, IServicoDeUsuario
     {
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
 

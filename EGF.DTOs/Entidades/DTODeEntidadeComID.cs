@@ -1,7 +1,10 @@
-﻿namespace EGF.DTOs.Entidades
+﻿using System;
+
+namespace EGF.DTOs.Entidades
 {
-    public class DTODeEntidadeComID : DTODeEntidade
+    public class DTODeEntidadeComID<TID> : DTODeEntidade
+        where TID : IComparable
     {
-        public int Id { get; set; }
+        public TID Id { get; set; }
     }
 }

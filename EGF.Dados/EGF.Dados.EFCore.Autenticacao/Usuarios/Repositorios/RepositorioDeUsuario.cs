@@ -5,7 +5,7 @@ using EGF.Dominio.UnidadesDeTrabalho;
 
 namespace EGF.Dados.EFCore.Autenticacao.Usuarios.Repositorios
 {
-    public class RepositorioDeUsuario : RepositorioComId<Usuario>, IRepositorioDeUsuario
+    public class RepositorioDeUsuario : RepositorioComId<int,Usuario>, IRepositorioDeUsuario
     {
         public RepositorioDeUsuario(IUnidadeDeTrabalho unidadeDeTrabalho) : base(unidadeDeTrabalho)
         {

@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace EGF.Dominio.Autenticacao.Usuarios.Entidades
 {
-    public class Usuario : EntidadeComId
+    public class Usuario : EntidadeComId<int>
     {
         [Description("Email")]
         public string Email { get; set; }

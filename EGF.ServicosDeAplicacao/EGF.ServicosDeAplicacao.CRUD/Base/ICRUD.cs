@@ -1,16 +1,18 @@
 ﻿using EGF.DTOs.Entidades;
 
+using System;
 using System.Collections.Generic;
 
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
-    public interface ICRUD<TDTO>
+    public interface ICRUD<TID,TDTO>
+        where TID : IComparable
         where TDTO : DTODeEntidade
     {
         TDTO Inserir(TDTO dto);
         TDTO Editar(TDTO dto);
         void Remover(TDTO dto);
         IEnumerable<TDTO> ObterTodos();
-        TDTO ObterPorId(int id);
+        TDTO ObterPorId(TID id);
     }
 }

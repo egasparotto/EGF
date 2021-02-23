@@ -5,14 +5,16 @@ using EGF.Dominio.Servicos;
 using EGF.Dominio.UnidadesDeTrabalho;
 using EGF.DTOs.Entidades;
 
+using System;
 using System.Collections.Generic;
 
 namespace EGF.ServicosDeAplicacao.CRUD.Base
 {
-    public abstract class CRUD<TEntidade, TServico, TDTO> : ICRUD<TDTO>
-        where TEntidade : EntidadeComId
-        where TServico : IServicoDePersistencia<TEntidade>
-        where TDTO : DTODeEntidadeComID
+    public abstract class CRUD<TID,TEntidade, TServico, TDTO> : ICRUD<TID,TDTO>
+        where TID : IComparable
+        where TEntidade : EntidadeComId<TID>
+        where TServico : IServicoDePersistencia<TID,TEntidade>
+        where TDTO : DTODeEntidadeComID<TID>
     {
         protected TServico Servico { get; }
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
@@ -59,7 +61,7 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
             UnidadeDeTrabalho.Commit();
         }
 
-        public virtual TDTO ObterPorId(int id)
+        public virtual TDTO ObterPorId(TID id)
         {
             return Mapeador.Map<TDTO>(Servico.ObterPorID(id));
         }

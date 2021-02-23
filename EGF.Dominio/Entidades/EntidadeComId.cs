@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace EGF.Dominio.Entidades
 {
-    public class EntidadeComId : Entidade
+    public class EntidadeComId<TID> : Entidade
+        where TID: IComparable
     {
         [Required]
-        public int Id { get; set; }
+        public TID Id { get; set; }
     }
 }

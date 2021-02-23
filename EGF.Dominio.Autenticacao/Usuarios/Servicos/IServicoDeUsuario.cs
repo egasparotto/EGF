@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 {
-    public interface IServicoDeUsuario : IServicoDePersistencia<Usuario>, IUserStore<Usuario>, IUserPasswordStore<Usuario>, IUserEmailStore<Usuario>, IUserRoleStore<Usuario>
+    public interface IServicoDeUsuario : IServicoDePersistencia<int,Usuario>, IUserStore<Usuario>, IUserPasswordStore<Usuario>, IUserEmailStore<Usuario>, IUserRoleStore<Usuario>
     {
     }
 }

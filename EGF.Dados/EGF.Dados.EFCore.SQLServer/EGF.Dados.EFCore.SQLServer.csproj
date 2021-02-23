@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>1.0.2.0</Version>
+    <Version>1.0.2.1</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Description>Classe de dados para SQL Server com EF Core do EGF</Description>
   </PropertyGroup>

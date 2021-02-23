@@ -3,7 +3,7 @@ using EGF.Dominio.Repositorios;
 
 namespace EGF.Dominio.Autenticacao.Perfis.Repositorios
 {
-    public interface IRepositorioDePerfil : IRepositorioComId<Perfil>
+    public interface IRepositorioDePerfil : IRepositorioComId<int,Perfil>
     {
     }
 }

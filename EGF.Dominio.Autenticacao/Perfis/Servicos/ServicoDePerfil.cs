@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EGF.Dominio.Autenticacao.Perfis.Servicos
 {
-    public class ServicoDePerfil : ServicoDePersistencia<Perfil, IRepositorioDePerfil>, IServicoDePerfil
+    public class ServicoDePerfil : ServicoDePersistencia<int, Perfil, IRepositorioDePerfil>, IServicoDePerfil
     {
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
         public ServicoDePerfil(IRepositorioDePerfil repositorio, IUnidadeDeTrabalho unidadeDeTrabalho) : base(repositorio)
