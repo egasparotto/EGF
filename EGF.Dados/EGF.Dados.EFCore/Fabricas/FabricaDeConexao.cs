@@ -20,6 +20,11 @@ namespace EGF.Dados.EFCore.Fabricas
             Licenca = licenca;
         }
 
+        public virtual DbContextOptionsBuilder OpcoesAdicionais(DbContextOptionsBuilder options)
+        {
+            return options;
+        }
+
         public abstract DbContextOptions Fabricar();
     }
 }

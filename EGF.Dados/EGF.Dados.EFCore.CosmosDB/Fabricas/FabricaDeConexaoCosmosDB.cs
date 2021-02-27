@@ -20,7 +20,7 @@ namespace EGF.Dados.EFCore.CosmosDB.Fabricas
         public override DbContextOptions Fabricar()
         {
             DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-            builder.UseCosmos(Licenca.ServidorBanco, Licenca.NomeBanco);
+            OpcoesAdicionais(builder).UseCosmos(Licenca.ServidorBanco, Licenca.NomeBanco);
             return builder.Options;
         }
     }

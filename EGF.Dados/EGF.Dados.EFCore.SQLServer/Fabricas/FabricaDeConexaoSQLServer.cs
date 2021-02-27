@@ -16,7 +16,7 @@ namespace EGF.Dados.EFCore.SQLServer.Fabricas
         public override DbContextOptions Fabricar()
         {
             DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-            builder.UseSqlServer(ConnectionString(), x =>
+            OpcoesAdicionais(builder).UseSqlServer(ConnectionString(), x =>
             {
                 if (!string.IsNullOrEmpty(_assemblyMigracao))
                 {
