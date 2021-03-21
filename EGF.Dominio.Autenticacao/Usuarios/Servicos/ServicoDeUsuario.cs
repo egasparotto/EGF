@@ -135,7 +135,7 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 
         public async Task<string> GetNormalizedUserNameAsync(Usuario user, CancellationToken cancellationToken)
         {
-            return await GetNormalizedEmailAsync(user, cancellationToken);
+            return await GetNormalizedEmailAsync(user, cancellationToken).ConfigureAwait(false);
         }
 
         public async Task<string> GetPasswordHashAsync(Usuario user, CancellationToken cancellationToken)
@@ -152,12 +152,12 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 
         public async Task<string> GetUserNameAsync(Usuario user, CancellationToken cancellationToken)
         {
-            return await GetEmailAsync(user, cancellationToken);
+            return await GetEmailAsync(user, cancellationToken).ConfigureAwait(false);
         }
 
         public async Task<bool> HasPasswordAsync(Usuario user, CancellationToken cancellationToken)
         {
-            var senha = await GetPasswordHashAsync(user, cancellationToken);
+            var senha = await GetPasswordHashAsync(user, cancellationToken).ConfigureAwait(false);
             return !String.IsNullOrEmpty(senha);
         }
 
@@ -226,13 +226,13 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 
         public async Task<IList<string>> GetRolesAsync(Usuario user, CancellationToken cancellationToken)
         {
-            var perfil = await Task.FromResult(user.Perfil.CodigoInterno);
-            return new List<string>() { perfil };
+            var perfil = await Task.FromResult(user.Perfil.CodigoInterno).ConfigureAwait(false);
+            return new List<string> { perfil };
         }
 
         public async Task<bool> IsInRoleAsync(Usuario user, string roleName, CancellationToken cancellationToken)
         {
-            return await Task.FromResult(user.Perfil.CodigoInterno == roleName);
+            return await Task.FromResult(user.Perfil.CodigoInterno == roleName).ConfigureAwait(false);
         }
 
         public async Task<IList<Usuario>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)

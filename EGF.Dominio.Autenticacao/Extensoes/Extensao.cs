@@ -14,11 +14,27 @@ namespace EGF.Dominio.Autenticacao.Extensoes
 {
     public static class Extensao
     {
-        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<IdentityOptions> identityOptions = null, Action<CookieAuthenticationOptions> cookieAuthenticationOptions = null)
+
+        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services)
+        {
+            AdicionarServicosDeAutenticacao(services, null, null);
+        }
+
+        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<IdentityOptions> identityOptions)
+        {
+            AdicionarServicosDeAutenticacao(services, identityOptions, null);
+        }
+
+        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<CookieAuthenticationOptions> cookieAuthenticationOptions)
+        {
+            AdicionarServicosDeAutenticacao(services, null, cookieAuthenticationOptions);
+        }
+
+        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<IdentityOptions> identityOptions, Action<CookieAuthenticationOptions> cookieAuthenticationOptions)
         {
             if (identityOptions == null)
             {
-                identityOptions = new Action<IdentityOptions>(options =>
+                identityOptions = options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireLowercase = false;
@@ -33,7 +49,7 @@ namespace EGF.Dominio.Autenticacao.Extensoes
 
             if (cookieAuthenticationOptions == null)
             {
-                cookieAuthenticationOptions = new Action<CookieAuthenticationOptions>(options =>
+                cookieAuthenticationOptions = options =>
                 {
                     options.AccessDeniedPath = "/Home/PaginaNaoEncontrada";
                     options.Cookie.Name = "ChamaAlunoIdentidade";

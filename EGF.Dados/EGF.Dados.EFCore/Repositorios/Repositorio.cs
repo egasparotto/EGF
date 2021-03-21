@@ -50,32 +50,32 @@ namespace EGF.Dados.EFCore.Repositorios
 
         public virtual async Task<IQueryable<TEntidade>> BuscarAsync()
         {
-            return await Task.FromResult(Buscar());
+            return await Task.FromResult(Buscar()).ConfigureAwait(false);
         }
 
         public async Task<IQueryable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func)
         {
-            return (await BuscarAsync()).Where(func).AsQueryable();
+            return (await BuscarAsync()).Where(func).AsQueryable().ConfigureAwait(false);
         }
 
         public virtual async Task<TEntidade> EditarAsync(TEntidade entidade)
         {
-            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>().Update(entidade).Entity);
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>().Update(entidade).Entity).ConfigureAwait(false);
         }
 
         public virtual async Task<TEntidade> InserirAsync(TEntidade entidade)
         {
-            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Add(entidade).Entity);
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Add(entidade).Entity).ConfigureAwait(false);
         }
 
         public virtual async Task<int> NumeroDeRegistrosAsync()
         {
-            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>().Count());
+            return await Task.FromResult(UnidadeDeTrabalho.Contexto.Set<TEntidade>().Count()).ConfigureAwait(false);
         }
 
         public virtual async Task RemoverAsync(TEntidade entidade)
         {
-            await Task.FromResult(UnidadeDeTrabalho.Contexto.Remove(entidade));
+            await Task.FromResult(UnidadeDeTrabalho.Contexto.Remove(entidade)).ConfigureAwait(false);
         }
 
     }

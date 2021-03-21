@@ -35,7 +35,7 @@ namespace EGF.Dominio.Servicos
             };
 
             using var producer = new ProducerBuilder<Null, string>(config).Build();
-            var retorno = await producer.ProduceAsync(topic, new Message<Null, string> { Value = processoSerializado });
+            await producer.ProduceAsync(topic, new Message<Null, string> { Value = processoSerializado }).ConfigureAwait(false);
         }
     }
 }

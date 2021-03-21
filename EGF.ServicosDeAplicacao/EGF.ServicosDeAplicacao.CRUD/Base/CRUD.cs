@@ -20,7 +20,7 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
         protected IMapper Mapeador { get; }
 
-        public CRUD(TServico servico, IUnidadeDeTrabalho unidadeDeTrabalho, IMapper mapeador)
+        protected CRUD(TServico servico, IUnidadeDeTrabalho unidadeDeTrabalho, IMapper mapeador)
         {
             Servico = servico;
             UnidadeDeTrabalho = unidadeDeTrabalho;
@@ -46,7 +46,7 @@ namespace EGF.ServicosDeAplicacao.CRUD.Base
             var entidade = Servico.ObterPorID(dto.Id);
             if(entidade == null)
             {
-                throw new System.Exception("Entidade não localizada para edição");
+                throw new ArgumentException("Entidade não localizada para edição");
             }
             entidade = Mapeador.Map(dto, entidade);
             entidade = Servico.Editar(entidade);

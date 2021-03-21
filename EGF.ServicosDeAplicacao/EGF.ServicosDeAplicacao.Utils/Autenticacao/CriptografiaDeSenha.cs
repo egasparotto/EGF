@@ -28,8 +28,8 @@ namespace EGF.ServicosDeAplicacao.Utils.Autenticacao
     {
         public static string Criptografa(string texto)
         {
-            byte[] salto;
-            RandomNumberGenerator.Create().GetNonZeroBytes(salto = new byte[16]);
+            byte[] salto = new byte[16];
+            RandomNumberGenerator.Create().GetNonZeroBytes(salto);
             var senha = new Rfc2898DeriveBytes(texto, salto, 1000);
             byte[] hash = senha.GetBytes(20);
             byte[] hashBytes = new byte[36];

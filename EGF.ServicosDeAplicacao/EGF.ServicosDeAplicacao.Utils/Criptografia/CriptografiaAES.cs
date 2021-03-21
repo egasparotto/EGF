@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EGF.ServicosDeAplicacao.Utils.Criptografia
 {
-    public class CriptografiaAES
+    public static class CriptografiaAES
     {
         public static string Criptografa(string senha, string texto)
         {

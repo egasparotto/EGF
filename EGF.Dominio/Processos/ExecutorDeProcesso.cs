@@ -7,7 +7,7 @@ namespace EGF.Processos.Base
     {
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
 
-        public ExecutorDeProcesso(IUnidadeDeTrabalho unidadeDeTrabalho)
+        protected ExecutorDeProcesso(IUnidadeDeTrabalho unidadeDeTrabalho)
         {
             UnidadeDeTrabalho = unidadeDeTrabalho;
         }

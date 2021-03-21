@@ -23,7 +23,6 @@ namespace EGF.Dados.EFCore.SQLServer.Fabricas
                     x.MigrationsAssembly(_assemblyMigracao);
                 }
             });
-            var dbContext = new DbContext(builder.Options);
             return builder.Options;
         }
 

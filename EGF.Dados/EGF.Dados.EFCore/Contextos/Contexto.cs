@@ -10,7 +10,7 @@ namespace EGF.Dados.EFCore.Contextos
 {
     public abstract class Contexto : DbContext, IContexto
     {
-        public Contexto(IFabricaDeConexao fabrica) : base(fabrica.Fabricar())
+        protected Contexto(IFabricaDeConexao fabrica) : base(fabrica.Fabricar())
         {
 
         }

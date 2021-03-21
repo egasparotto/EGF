@@ -1,4 +1,5 @@
 ﻿
+using EGF.Excecoes;
 using EGF.Licenciamento.Core.Licencas.Entidades;
 using EGF.ServicosDeAplicacao.Utils.Criptografia;
 
@@ -48,7 +49,7 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Erro ao localizar licença.", e);
+                    throw new ExcecaoDeLicenciamento("Erro ao localizar licença.", e);
                 }
             }
 
@@ -86,7 +87,7 @@ namespace EGF.Licenciamento.Core.Licencas.Gerenciadores
             }
             catch (Exception e)
             {
-                throw new Exception("Erro ao ativar licença", e);
+                throw new ExcecaoDeLicenciamento("Erro ao ativar licença", e);
             }
         }
 
