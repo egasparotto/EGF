@@ -55,7 +55,7 @@ namespace EGF.Dados.EFCore.Repositorios
 
         public async Task<IQueryable<TEntidade>> BuscarAsync(Func<TEntidade, bool> func)
         {
-            return (await BuscarAsync()).Where(func).AsQueryable().ConfigureAwait(false);
+            return (await BuscarAsync().ConfigureAwait(false)).Where(func).AsQueryable();
         }
 
         public virtual async Task<TEntidade> EditarAsync(TEntidade entidade)

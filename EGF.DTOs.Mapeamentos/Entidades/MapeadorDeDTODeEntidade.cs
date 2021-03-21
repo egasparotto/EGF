@@ -6,7 +6,7 @@ using EGF.DTOs.Mapeamentos.Base;
 
 namespace EGF.DTOs.Mapeamentos.Entidades
 {
-    public class MapeadorDeDTODeEntidade : MapeadorDeDTO<Entidade, DTODeEntidade>
+    public abstract class MapeadorDeDTODeEntidade : MapeadorDeDTO<Entidade, DTODeEntidade>
     {
     }
 }

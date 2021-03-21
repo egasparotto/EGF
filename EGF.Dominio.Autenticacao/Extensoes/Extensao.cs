@@ -44,7 +44,7 @@ namespace EGF.Dominio.Autenticacao.Extensoes
                     options.Password.RequiredUniqueChars = 1;
                     options.Lockout.MaxFailedAccessAttempts = 10;
                     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
-                });
+                };
             }
 
             if (cookieAuthenticationOptions == null)
@@ -58,7 +58,7 @@ namespace EGF.Dominio.Autenticacao.Extensoes
                     options.LoginPath = "/Administracao/Conta/Login";
                     options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
                     options.SlidingExpiration = true;
-                });
+                };
             }
 
             services.AddIdentity<Usuario, Perfil>().AddDefaultTokenProviders();
