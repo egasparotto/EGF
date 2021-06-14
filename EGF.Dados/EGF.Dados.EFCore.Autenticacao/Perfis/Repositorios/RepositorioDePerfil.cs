@@ -5,7 +5,8 @@ using EGF.Dominio.UnidadesDeTrabalho;
 
 namespace EGF.Dados.EFCore.Autenticacao.Perfis.Repositorios
 {
-    public class RepositorioDePerfil : RepositorioComId<int,Perfil>, IRepositorioDePerfil
+    public class RepositorioDePerfil<TEntidade> : RepositorioComId<int,TEntidade>, IRepositorioDePerfil<TEntidade>
+        where TEntidade: Perfil
     {
         public RepositorioDePerfil(IUnidadeDeTrabalho unidadeDeTrabalho) : base(unidadeDeTrabalho)
         {

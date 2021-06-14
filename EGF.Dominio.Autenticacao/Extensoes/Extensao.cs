@@ -15,22 +15,30 @@ namespace EGF.Dominio.Autenticacao.Extensoes
     public static class Extensao
     {
 
-        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services)
+        public static void AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(this IServiceCollection services)
+            where TUsuario : Usuario
+            where TPerfil : Perfil
         {
-            AdicionarServicosDeAutenticacao(services, null, null);
+            AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(services, null, null);
         }
 
-        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<IdentityOptions> identityOptions)
+        public static void AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(this IServiceCollection services, Action<IdentityOptions> identityOptions)
+            where TUsuario : Usuario
+            where TPerfil : Perfil
         {
-            AdicionarServicosDeAutenticacao(services, identityOptions, null);
+            AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(services, identityOptions, null);
         }
 
-        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<CookieAuthenticationOptions> cookieAuthenticationOptions)
+        public static void AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(this IServiceCollection services, Action<CookieAuthenticationOptions> cookieAuthenticationOptions)
+            where TUsuario : Usuario
+            where TPerfil : Perfil
         {
-            AdicionarServicosDeAutenticacao(services, null, cookieAuthenticationOptions);
+            AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(services, null, cookieAuthenticationOptions);
         }
 
-        public static void AdicionarServicosDeAutenticacao(this IServiceCollection services, Action<IdentityOptions> identityOptions, Action<CookieAuthenticationOptions> cookieAuthenticationOptions)
+        public static void AdicionarServicosDeAutenticacao<TUsuario, TPerfil>(this IServiceCollection services, Action<IdentityOptions> identityOptions, Action<CookieAuthenticationOptions> cookieAuthenticationOptions)
+            where TUsuario : Usuario
+            where TPerfil : Perfil
         {
             if (identityOptions == null)
             {
@@ -61,14 +69,14 @@ namespace EGF.Dominio.Autenticacao.Extensoes
                 };
             }
 
-            services.AddIdentity<Usuario, Perfil>().AddDefaultTokenProviders();
-            services.AddScoped<IPasswordHasher<Usuario>, CriptografiaDeSenha<Usuario>>();
-            services.AddTransient<IUserStore<Usuario>, ServicoDeUsuario>();
-            services.AddTransient<IRoleStore<Perfil>, ServicoDePerfil>();
-            services.AddTransient<IServicoDeUsuario, ServicoDeUsuario>();
-            services.AddTransient<IServicoDePerfil, ServicoDePerfil>();
-            services.AddTransient<UserManager<Usuario>>();
-            services.AddTransient<SignInManager<Usuario>>();
+            services.AddIdentity<TUsuario, TPerfil>().AddDefaultTokenProviders();
+            services.AddScoped<IPasswordHasher<TUsuario>, CriptografiaDeSenha<TUsuario>>();
+            services.AddTransient<IUserStore<TUsuario>, ServicoDeUsuario<TUsuario>>();
+            services.AddTransient<IRoleStore<TPerfil>, ServicoDePerfil<TPerfil>>();
+            services.AddTransient<IServicoDeUsuario<TUsuario>, ServicoDeUsuario<TUsuario>>();
+            services.AddTransient<IServicoDePerfil<TPerfil>, ServicoDePerfil<TPerfil>>();
+            services.AddTransient<UserManager<TUsuario>>();
+            services.AddTransient<SignInManager<TUsuario>>();
             services.ConfigureApplicationCookie(cookieAuthenticationOptions);
             services.Configure(identityOptions);
         }

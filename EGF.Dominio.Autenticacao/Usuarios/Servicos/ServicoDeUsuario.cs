@@ -14,16 +14,17 @@ using System.Threading.Tasks;
 
 namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
 {
-    public class ServicoDeUsuario : ServicoDePersistencia<int,Usuario, IRepositorioDeUsuario>, IServicoDeUsuario
+    public class ServicoDeUsuario<TEntidade> : ServicoDePersistencia<int,TEntidade, IRepositorioDeUsuario<TEntidade>>, IServicoDeUsuario<TEntidade>
+        where TEntidade: Usuario
     {
         protected IUnidadeDeTrabalho UnidadeDeTrabalho { get; }
 
-        public ServicoDeUsuario(IRepositorioDeUsuario repositorio, IUnidadeDeTrabalho unidadeDeTrabalho) : base(repositorio)
+        public ServicoDeUsuario(IRepositorioDeUsuario<TEntidade> repositorio, IUnidadeDeTrabalho unidadeDeTrabalho) : base(repositorio)
         {
             UnidadeDeTrabalho = unidadeDeTrabalho;
         }
 
-        public override Usuario Inserir(Usuario entidade)
+        public override TEntidade Inserir(TEntidade entidade)
         {
             if (entidade != null)
             {
@@ -35,7 +36,7 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             return base.Inserir(entidade);
         }
 
-        public override Usuario Editar(Usuario entidade)
+        public override TEntidade Editar(TEntidade entidade)
         {
             var registroAntigo = UnidadeDeTrabalho.Contexto.ObterAntesDaAlteracao(entidade);
             if (entidade != null)
@@ -52,7 +53,7 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             return base.Editar(entidade);
         }
 
-        public async Task<IdentityResult> CreateAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<IdentityResult> CreateAsync(TEntidade user, CancellationToken cancellationToken)
         {
             try
             {
@@ -68,7 +69,7 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             }
         }
 
-        public async Task<IdentityResult> DeleteAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<IdentityResult> DeleteAsync(TEntidade user, CancellationToken cancellationToken)
         {
             try
             {
@@ -89,31 +90,31 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             GC.SuppressFinalize(this);
         }
 
-        public async Task<Usuario> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
+        public async Task<TEntidade> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Email.ToUpper() == normalizedEmail);
             return retorno.FirstOrDefault();
         }
 
-        public async Task<Usuario> FindByIdAsync(string userId, CancellationToken cancellationToken)
+        public async Task<TEntidade> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Id == Int32.Parse(userId));
             return retorno.FirstOrDefault();
         }
 
-        public async Task<Usuario> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
+        public async Task<TEntidade> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Email.ToUpper() == normalizedUserName);
             return retorno.FirstOrDefault();
         }
 
-        public async Task<string> GetEmailAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<string> GetEmailAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Id == user.Id);
             return retorno.FirstOrDefault()?.Email;
         }
 
-        public async Task<bool> GetEmailConfirmedAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<bool> GetEmailConfirmedAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Id == user.Id);
             var Usuario = retorno.FirstOrDefault();
@@ -127,77 +128,77 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             }
         }
 
-        public async Task<string> GetNormalizedEmailAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<string> GetNormalizedEmailAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Id == user.Id);
             return retorno.FirstOrDefault()?.Email?.ToUpper();
         }
 
-        public async Task<string> GetNormalizedUserNameAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<string> GetNormalizedUserNameAsync(TEntidade user, CancellationToken cancellationToken)
         {
             return await GetNormalizedEmailAsync(user, cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task<string> GetPasswordHashAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<string> GetPasswordHashAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Id == user.Id);
             return retorno.FirstOrDefault()?.Senha;
         }
 
-        public async Task<string> GetUserIdAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<string> GetUserIdAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var retorno = await Repositorio.BuscarAsync(x => x.Id == user.Id);
             return retorno.FirstOrDefault()?.Id.ToString();
         }
 
-        public async Task<string> GetUserNameAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<string> GetUserNameAsync(TEntidade user, CancellationToken cancellationToken)
         {
             return await GetEmailAsync(user, cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task<bool> HasPasswordAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<bool> HasPasswordAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var senha = await GetPasswordHashAsync(user, cancellationToken).ConfigureAwait(false);
             return !String.IsNullOrEmpty(senha);
         }
 
-        public Task SetEmailAsync(Usuario user, string email, CancellationToken cancellationToken)
+        public Task SetEmailAsync(TEntidade user, string email, CancellationToken cancellationToken)
         {
             user.Email = email;
             return Task.FromResult((object)null);
         }
 
-        public Task SetEmailConfirmedAsync(Usuario user, bool confirmed, CancellationToken cancellationToken)
+        public Task SetEmailConfirmedAsync(TEntidade user, bool confirmed, CancellationToken cancellationToken)
         {
             user.EmailConfirmado = confirmed;
             return Task.FromResult((object)null);
         }
 
-        public Task SetNormalizedEmailAsync(Usuario user, string normalizedEmail, CancellationToken cancellationToken)
+        public Task SetNormalizedEmailAsync(TEntidade user, string normalizedEmail, CancellationToken cancellationToken)
         {
             user.Email = normalizedEmail;
             return Task.FromResult((object)null);
         }
 
-        public Task SetNormalizedUserNameAsync(Usuario user, string normalizedName, CancellationToken cancellationToken)
+        public Task SetNormalizedUserNameAsync(TEntidade user, string normalizedName, CancellationToken cancellationToken)
         {
             user.Email = normalizedName;
             return Task.FromResult((object)null);
         }
 
-        public Task SetPasswordHashAsync(Usuario user, string passwordHash, CancellationToken cancellationToken)
+        public Task SetPasswordHashAsync(TEntidade user, string passwordHash, CancellationToken cancellationToken)
         {
             user.Senha = passwordHash;
             return Task.FromResult((object)null);
         }
 
-        public Task SetUserNameAsync(Usuario user, string userName, CancellationToken cancellationToken)
+        public Task SetUserNameAsync(TEntidade user, string userName, CancellationToken cancellationToken)
         {
             user.Email = userName;
             return Task.FromResult((object)null);
         }
 
-        public async Task<IdentityResult> UpdateAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<IdentityResult> UpdateAsync(TEntidade user, CancellationToken cancellationToken)
         {
             try
             {
@@ -214,28 +215,28 @@ namespace EGF.Dominio.Autenticacao.Usuarios.Servicos
             }
         }
 
-        public Task AddToRoleAsync(Usuario user, string roleName, CancellationToken cancellationToken)
+        public Task AddToRoleAsync(TEntidade user, string roleName, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveFromRoleAsync(Usuario user, string roleName, CancellationToken cancellationToken)
+        public Task RemoveFromRoleAsync(TEntidade user, string roleName, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IList<string>> GetRolesAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<IList<string>> GetRolesAsync(TEntidade user, CancellationToken cancellationToken)
         {
             var perfil = await Task.FromResult(user.Perfil.CodigoInterno).ConfigureAwait(false);
             return new List<string> { perfil };
         }
 
-        public async Task<bool> IsInRoleAsync(Usuario user, string roleName, CancellationToken cancellationToken)
+        public async Task<bool> IsInRoleAsync(TEntidade user, string roleName, CancellationToken cancellationToken)
         {
             return await Task.FromResult(user.Perfil.CodigoInterno == roleName).ConfigureAwait(false);
         }
 
-        public async Task<IList<Usuario>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
+        public async Task<IList<TEntidade>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
         {
             var usuarios = await Repositorio.BuscarAsync(x => x.Perfil.CodigoInterno == roleName);
             return usuarios.ToList();

@@ -2,7 +2,9 @@
 using EGF.Dados.EFCore.Autenticacao.Perfis.Repositorios;
 using EGF.Dados.EFCore.Autenticacao.Usuarios.Mapeamentos;
 using EGF.Dados.EFCore.Autenticacao.Usuarios.Repositorios;
+using EGF.Dominio.Autenticacao.Perfis.Entidades;
 using EGF.Dominio.Autenticacao.Perfis.Repositorios;
+using EGF.Dominio.Autenticacao.Usuarios.Entidades;
 using EGF.Dominio.Autenticacao.Usuarios.Repositorios;
 
 using Microsoft.EntityFrameworkCore;
@@ -18,10 +20,12 @@ namespace EGF.Dados.EFCore.Autenticacao.Extensoes
             modelBuilder.ApplyConfiguration(new MapeamentoDePerfil());
         }
 
-        public static void AdicionarRepositoriosDeAutenticacao(this IServiceCollection services)
+        public static void AdicionarRepositoriosDeAutenticacao<TUsuario, TPerfil>(this IServiceCollection services)
+            where TUsuario : Usuario
+            where TPerfil : Perfil
         {
-            services.AddScoped<IRepositorioDeUsuario, RepositorioDeUsuario>();
-            services.AddScoped<IRepositorioDePerfil, RepositorioDePerfil>();
+            services.AddScoped<IRepositorioDeUsuario<TUsuario>, RepositorioDeUsuario<TUsuario>>();
+            services.AddScoped<IRepositorioDePerfil<TPerfil>, RepositorioDePerfil<TPerfil>>();
         }
     }
 }
