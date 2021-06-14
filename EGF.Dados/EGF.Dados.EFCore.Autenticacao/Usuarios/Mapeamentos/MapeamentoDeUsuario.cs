@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EGF.Dados.EFCore.Autenticacao.Usuarios.Mapeamentos
 {
-    public class MapeamentoDeUsuario : Mapeamento<Usuario>
+    public class MapeamentoDeUsuario<TEntidade> : Mapeamento<TEntidade>
+        where TEntidade: Usuario
     {
-        protected override void Mapear(EntityTypeBuilder<Usuario> builder)
+        protected override void Mapear(EntityTypeBuilder<TEntidade> builder)
         {
             builder.Property(x => x.Id).HasColumnName("ID");
             builder.Property(x => x.Email).HasColumnName("EMAIL");

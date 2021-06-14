@@ -14,10 +14,12 @@ namespace EGF.Dados.EFCore.Autenticacao.Extensoes
 {
     public static class Extensao
     {
-        public static void MapearBancoDeDadosDeAutenticacao(this ModelBuilder modelBuilder)
+        public static void MapearBancoDeDadosDeAutenticacao<TUsuario, TPerfil>(this ModelBuilder modelBuilder)
+            where TUsuario: Usuario
+            where TPerfil: Perfil
         {
-            modelBuilder.ApplyConfiguration(new MapeamentoDeUsuario());
-            modelBuilder.ApplyConfiguration(new MapeamentoDePerfil());
+            modelBuilder.ApplyConfiguration(new MapeamentoDeUsuario<TUsuario>());
+            modelBuilder.ApplyConfiguration(new MapeamentoDePerfil<TPerfil>());
         }
 
         public static void AdicionarRepositoriosDeAutenticacao<TUsuario, TPerfil>(this IServiceCollection services)
