@@ -4,7 +4,7 @@ using System;
 
 namespace EGF.Licenciamento.Console
 {
-    public class GerenciadorDeLicencaInterno : GerenciadorDeLicenca
+    public class GerenciadorDeLicencaInterno : GerenciadorDeLicencaArquivo
     {
         protected override string LocalDoArquivo()
         {

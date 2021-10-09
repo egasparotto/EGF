@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.2.6</Version>
+    <Version>1.0.2.7</Version>
     <Authors>Eduardo Augusto Gasparotto</Authors>
     <Company>Eduardo Augusto Gasparotto</Company>
     <Description>Classes de DTO do EGF</Description>
