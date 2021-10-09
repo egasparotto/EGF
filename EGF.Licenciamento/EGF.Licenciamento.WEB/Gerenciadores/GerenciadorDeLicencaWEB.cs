@@ -1,5 +1,6 @@
 ﻿using EGF.Licenciamento.Core.Licencas.Entidades;
 using EGF.Licenciamento.Core.Licencas.Gerenciadores;
+using EGF.ServicosDeAplicacao.Utils.Criptografia;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -57,7 +58,9 @@ namespace EGF.Licenciamento.WEB.Gerenciadores
 
             var stringLicenca = new StreamReader(stream).ReadToEnd();
 
-            return JsonSerializer.Deserialize<Licenca>(stringLicenca);
+            var conteudoLicenca = CriptografiaAES.Descriptografa(_hash, stringLicenca);
+
+            return JsonSerializer.Deserialize<Licenca>(conteudoLicenca);
         }
     }
 }
